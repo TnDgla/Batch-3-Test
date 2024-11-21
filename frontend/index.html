@@ -7,12 +7,16 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>LeetCode Leaderboard</title>
 </head>
-<body class="bg-gray-900 text-white p-5">
-    <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
+<body class="bg-gray-900 text-white p-5">   
     <div class="container mx-auto my-10">
         <div class="">
             <!-- Leaderboard -->
+            <div id="ticker" class="bg-gray-700 text-white p-4 rounded mb-6">
+                <marquee  behavior="scroll" direction="left" id="latest-submissions">
+                </marquee>
+            </div>
             <div class="col-span-2 bg-gray-800 rounded-lg shadow-md p-6 overflow-x-auto">
+              
                 <div class="flex justify-between items-center mb-6">
                     <h1 class="text-4xl font-bold">TBPPP Leaderboard</h1>
                     <div class="flex gap-4 items-center">
@@ -21,6 +25,9 @@
                         </select>
                         <button id="export-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center transition duration-150 ease-in-out">
                             <i class="fas fa-download mr-2"></i> Export to CSV
+                        </button>
+                        <button id="theme-toggle" class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            Toggle Dark/Light Mode
                         </button>
                     </div>
                 </div>
@@ -90,5 +97,49 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="index.js"></script>
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved user preference, if any, on load of the website
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.remove('bg-gray-900', 'text-white');
+            body.classList.add('bg-white', 'text-black');
+        } else {
+            localStorage.setItem('theme', 'dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (body.classList.contains('bg-gray-900')) {
+                body.classList.remove('bg-gray-900', 'text-white');
+                body.classList.add('bg-white', 'text-black');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('bg-white', 'text-black');
+                body.classList.add('bg-gray-900', 'text-white');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('http://localhost:3001/data')
+                .then(response => response.json())
+                .then(data => {
+                    const latestSubmissions = data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                    const marquee = document.getElementById('latest-submissions');
+                    latestSubmissions.slice(0, 3).forEach(submission => {
+                        const span = document.createElement('span');
+                        span.textContent = `${submission.name} solved ${submission.hardSolved} hard questions and solved total ${submission.totalSolved} questions       `;
+                        marquee.appendChild(span);
+                    });
+                marquee.style.backgroundColor = 'green';
+            })
+                .catch(error => {
+                    console.error('Error fetching latest submissions:', error);
+                });
+        });
+    </script>
 </body>
 </html>

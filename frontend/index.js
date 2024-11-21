@@ -706,7 +706,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             link.click();
             document.body.removeChild(link);
         };
-
+       
         // Function to render the leaderboard
         const renderLeaderboard = (sortedData) => {
             leaderboardBody.innerHTML = '';

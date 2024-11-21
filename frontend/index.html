@@ -7,8 +7,29 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>LeetCode Leaderboard</title>
 </head>
+
 <body class="bg-gray-900 text-white p-5">
     <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
+<div class="flex justify-end mb-4"></div>
+    <button id="theme-toggle" class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        Toggle Theme
+    </button>
+</div>
+<script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const leaderboard = document.querySelector('.bg-gray-800');
+
+    themeToggleBtn.addEventListener('click', () => {
+        body.classList.toggle('bg-gray-900');
+        body.classList.toggle('bg-white');
+        body.classList.toggle('text-white');
+        body.classList.toggle('text-black');
+        leaderboard.classList.toggle('bg-gray-800');
+        leaderboard.classList.toggle('bg-gray-200');
+
+    });
+</script>
     <div class="container mx-auto my-10">
         <div class="">
             <!-- Leaderboard -->

@@ -47,7 +47,7 @@
                                     const marquee = document.getElementById('latest-submissions');
                                     latestSubmissions.slice(0, 3).forEach(submission => {
                                         const span = document.createElement('span');
-                                        span.textContent = ${submission.name} solved ${submission.question} (${submission.difficulty});
+                                        span.textContent =` ${submission.name})`;
                                         marquee.appendChild(span);
                                     });
                                 marquee.style.backgroundColor = 'green';

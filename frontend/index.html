@@ -6,16 +6,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>LeetCode Leaderboard</title>
+    <style>
+        body {
+            padding: 25px;
+            background-color: white;
+            color: black;
+            font-size: 25px;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+        .button {
+            background-color: #04AA6D; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+          }
+          .b1 { background-color: black;
+                  
+        }
+    </style>
 </head>
 <body class="bg-gray-900 text-white p-5">
     <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
     <div class="container mx-auto my-10">
+        <div>  <marquee behavior="scroll" direction="left" 
+            onmouseover="this.stop();" 
+            onmouseout="this.start();">
+                hello
+        </marquee></div>
         <div class="">
             <!-- Leaderboard -->
             <div class="col-span-2 bg-gray-800 rounded-lg shadow-md p-6 overflow-x-auto">
                 <div class="flex justify-between items-center mb-6">
                     <h1 class="text-4xl font-bold">TBPPP Leaderboard</h1>
                     <div class="flex gap-4 items-center">
+                        <div class="b1"><div>
+                            <button onclick="darkMode()" class="button">Darkmode</button>
+                            <button onclick="lightMode()" class="button">LightMode</button></div></div>
                         <select id="section-filter" class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="all">All Sections</option>
                         </select>
@@ -90,5 +129,19 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="index.js"></script>
+    <script>
+        function darkMode() {
+            let element = document.body;
+            let content = document.getElementById("DarkModetext");
+            element.className = "dark-mode";
+            
+        }
+        function lightMode() {
+            let element = document.body;
+            let content = document.getElementById("DarkModetext");
+            element.className = "light-mode";
+            
+        }
+    </script>
 </body>
 </html>

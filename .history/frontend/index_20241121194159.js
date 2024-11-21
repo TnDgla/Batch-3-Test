@@ -1,4 +1,3 @@
-
 const oldData = {
     "2215001289":1077,
     "2215500064":863,
@@ -834,3 +833,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error fetching data:', error);
     }
 });
+const checkbox = document.getElementById("checkbox")
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark")
+})

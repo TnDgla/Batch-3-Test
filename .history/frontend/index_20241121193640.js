@@ -1,4 +1,12 @@
-
+$( ".change" ).on("click", function() {
+    if( $( "body" ).hasClass( "dark" )) {
+        $( "body" ).removeClass( "dark" );
+        $( ".change" ).text( "OFF" );
+    } else {
+        $( "body" ).addClass( "dark" );
+        $( ".change" ).text( "ON" );
+    }
+});
 const oldData = {
     "2215001289":1077,
     "2215500064":863,
@@ -833,4 +841,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error fetching data:', error);
     }
+
+    
+
 });

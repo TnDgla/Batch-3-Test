@@ -1,4 +1,7 @@
-
+function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+ }
 const oldData = {
     "2215001289":1077,
     "2215500064":863,
@@ -833,4 +836,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error fetching data:', error);
     }
+
+    
+
 });

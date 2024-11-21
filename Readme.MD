@@ -6,4 +6,4 @@ How to setup
 5) in new window of vs code open frontend directory
 6) start live server of index.html file
 
-Feel free to create an issue or google/chatgpt if you get an error while setting up
+Feel free to create an issue or google/chatgpt if you get an error while setting

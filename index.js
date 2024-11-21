@@ -8,9 +8,8 @@ const port = 3001;
 app.use(cors());
 
 // GraphQL query to fetch user stats (problem count by difficulty)
-const userStatsQuery = `
-  query userStats($username: String!) {
-    matchedUser(username: $username) {
+const userStatsQuery = `query userStats(${username}: String!) {
+    matchedUser(username: ${username}) {
       username
       submitStats: submitStatsGlobal {
         acSubmissionNum {
@@ -25,8 +24,8 @@ const userStatsQuery = `
 
 // GraphQL query to fetch recent submissions
 const recentSubQuery = `
-  query recentAcSubmissions($username: String!, $limit: Int!) {
-    recentAcSubmissionList(username: $username, limit: $limit) {
+  query recentAcSubmissions(${username}: String!, ${limit}: Int!) {
+    recentAcSubmissionList(username: ${username, limit}: ${limit}) {
       id
       title
       timestamp

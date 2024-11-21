@@ -1,11 +1,10 @@
-/* styles.css */
 
 body {
     font-family: Arial, sans-serif;
 }
 
 th:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: white;
 }
 
 tr {
@@ -15,3 +14,10 @@ tr {
 tr:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+
+.button{
+    color: aqua;
+    background-color: brown;
+}
+
+

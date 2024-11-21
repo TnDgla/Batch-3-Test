@@ -828,6 +828,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const sortedData = sortData(filteredData, 'hardSolved', hardSolvedDirection, true);
             renderLeaderboard(sortedData);
         });
+        
 
     } catch (error) {
         console.error('Error fetching data:', error);

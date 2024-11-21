@@ -1,17 +1,70 @@
 /* styles.css */
 
 body {
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 th:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 tr {
-    transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 tr:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+body {
+  padding: 10% 3% 10% 3%;
+  text-align: center;
+}
+img {
+  height: 140px;
+  width: 140px;
+}
+h1 {
+  color: #32a852;
+}
+.mode {
+  float: right;
+}
+.change {
+  cursor: pointer;
+  border: 1px solid #555;
+  border-radius: 40%;
+  width: 20px;
+  text-align: center;
+  padding: 5px;
+  margin-left: 8px;
+}
+.dark {
+  background-color: #222;
+  color: #e6e6e6;
+}
+body.light {
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+  --card-bg: #fff;
+  --card-border: #ddd;
+}
+body.dark {
+  --bg-color: #1a202c;
+  --text-color: #fff;
+  --card-bg: #2d3748;
+  --card-border: #4a5568;
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+table {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+}
+select,
+button {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--card-border);
 }

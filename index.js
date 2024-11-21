@@ -63,6 +63,7 @@ async function fetchLeet(username) {
       easySolved: 0,
       mediumSolved: 0,
       hardSolved: 0,
+      latestSolved: 0,
     };
 
     userStats.forEach(item => {
@@ -78,6 +79,9 @@ async function fetchLeet(username) {
           break;
         case "Hard":
           stats.hardSolved = item.count;
+          break;
+        case "Latest":
+          stats.latestSolved = item.count;
           break;
         default:
           break;
@@ -96,6 +100,7 @@ async function fetchLeet(username) {
         easySolved: 0,
         mediumSolved: 0,
         hardSolved: 0,
+        latestSolved: 0,
       },
       recentSubmissions: [],
     };

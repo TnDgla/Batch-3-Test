@@ -664,6 +664,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         //   }
         // });
 
+        const searchBar = document.getElementById('search-bar')
+        searchBar.addEventListener('input', (e)=>{
+            const query=e.target.value.toLowerCase().trim();
+            const result= data.filter(student =>
+            (student.name && student.name.toLowerCase().includes(query)) ||
+            (student.roll && student.roll.toLowerCase().includes(query))
+            );
+            renderLeaderboard(result);
+
+        });
         
         // Populate section filter dropdown
         const populateSectionFilter = () => {
@@ -677,6 +687,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 sectionFilter.appendChild(option);
             });
         };
+  
 
         // Function to export data to CSV
         const exportToCSV = (data) => {
@@ -832,4 +843,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error fetching data:', error);
     }
+    document.getElementById('theme-toggle').addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+        if (document.body.classList.contains('dark-theme')) {
+            this.textContent = 'Light Mode';
+        }   
+        else {
+            this.textContent = 'Dark Mode';
+            }
+        });
+    document.getElementById('theme').style.color = "White";
 });

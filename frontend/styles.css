@@ -2,8 +2,29 @@
 
 body {
     font-family: Arial, sans-serif;
+    padding: 25px;
+    color: white;
+    background-color: black;
+}
+.dark-mode .min-w-full {
+    background-color: black;
+    color: white;
 }
 
+.light-mode .min-w-full {
+    background-color: white;
+    color: black;
+}
+.my_text{
+    font-size: 25px;
+}
+.my_colour{
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 7px;
+    background-color: rgba(59, 130, 246, 0.5);
+    height: 40px;
+}
 th:hover {
     background-color: rgba(0, 0, 0, 0.5);
 }

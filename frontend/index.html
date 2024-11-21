@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <title>LeetCode Leaderboard</title>
 </head>
 <body class="bg-gray-900 text-white p-5">
@@ -13,12 +14,15 @@
         <div class="">
             <!-- Leaderboard -->
             <div class="col-span-2 bg-gray-800 rounded-lg shadow-md p-6 overflow-x-auto">
+                <marquee class="my_text"> TBPPP-Leaderboard for LeetCode</marquee>
                 <div class="flex justify-between items-center mb-6">
                     <h1 class="text-4xl font-bold">TBPPP Leaderboard</h1>
                     <div class="flex gap-4 items-center">
                         <select id="section-filter" class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="all">All Sections</option>
                         </select>
+                        <button class="my_colour" onclick="lightMode()">LightMode</button>
+                        <button class="my_colour" onclick="darkMode()">Darkmode</button>
                         <button id="export-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center transition duration-150 ease-in-out">
                             <i class="fas fa-download mr-2"></i> Export to CSV
                         </button>
@@ -88,6 +92,22 @@
             </div>
         </div>
     </div>
+    <script>
+        function darkMode() {
+            let element = document.body;
+            let content = document.getElementsByClassName("min-w-full");
+            element.className = "dark-mode";
+            // element.classList.toggle("dark-mode");
+            content.innerText = "Dark Mode is ON";
+        }
+        function lightMode() {
+            let element = document.body;
+            let content = document.getElementsByClassName("min-w-full");
+            element.className = "light-mode";
+            // element.classList.toggle("dark-mode");
+            content.innerText = "Dark Mode is OFF";
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="index.js"></script>
 </body>

@@ -622,13 +622,13 @@ const oldData = {
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         
-             
+
         const response = await fetch("http://localhost:3001/data");
         const data = await response.json();
         let filteredData = [...data]; // Keep original data separate
         let yashData = [...data];
         const leaderboardBody = document.getElementById('leaderboard-body');
-        const sectionFilter = document.getElementById('section-filter');
+        const sectionFilter = document.getElementById('section-filter');     
         var host =0;
         var day =0;
         yashData.forEach(myFunction);

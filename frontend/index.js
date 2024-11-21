@@ -3,6 +3,19 @@ function darkMode() {
     let content = document.getElementById("DarkModetext");
     element.className = "dark-mode";
     content.innerText = "Dark Mode is ON";
+    if(text=="DarkMode") {
+        content.innerText="light-mode";
+        element.classList.remove("dark-mode");
+        element.classList.add("light-mode");
+        element.style.backgroundColor="white";
+    }
+    else{
+        content.innerText="dark-mode";
+        element.classList.remove("dark-mode");
+        element.classList.add("dark-mode");
+        element.style.backgroundColor="black";
+
+    }
 }
 function lightMode() {
     let element = document.body;
@@ -10,6 +23,10 @@ function lightMode() {
     element.className = "light-mode";
     content.innerText = "Dark Mode is OFF";
 }
+
+
+
+
 
 const oldData = {
     "2215001289":1077,

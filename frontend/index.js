@@ -666,6 +666,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         
         // Populate section filter dropdown
+
+        const color=()=>{
+           function changecolor(color){
+                document.body.style.background=color;
+           }
+           function mycolor(){
+               changecolor('white');
+           }
+        }
         const populateSectionFilter = () => {
             // var sections = [...new Set(data.map(student => student.section || 'N/A'))].sort();
             const sections = ['A(H)','AC','AD','AE','C','D','E','F','G','H','Day Scholars','Hostellers'];

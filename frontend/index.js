@@ -829,6 +829,33 @@ document.addEventListener('DOMContentLoaded', async () => {
             renderLeaderboard(sortedData);
         });
 
+
+        let round = document.querySelector(".round");
+        let inDiv = document.querySelector(".col-span-2");
+        let headDiv = document.querySelector(".min-w-full");
+        let flag = false;
+        round.addEventListener('click', function(){
+            if(!flag)
+            {
+                document.body.style.backgroundColor = 'black';
+                inDiv.style.backgroundColor = 'rgb(32, 32, 32)';
+                headDiv.style.backgroundColor = 'rgb(64, 64, 64)';
+                flag = true;
+            }
+            else
+            {
+                document.body.style.backgroundColor = 'rgb(17, 24, 39)';
+                inDiv.style.backgroundColor = 'rgb(31, 41, 55)';
+                headDiv.style.backgroundColor = 'rgb(55, 65, 81)';
+                flag = false;
+            }
+        })
+
+
+
+
+
+
     } catch (error) {
         console.error('Error fetching data:', error);
     }

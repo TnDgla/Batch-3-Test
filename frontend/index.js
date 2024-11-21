@@ -833,3 +833,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error fetching data:', error);
     }
 });
+const toggleButton = document.getElementById('toggle-b');
+let on = 0;
+toggleButton.addEventListener('click',() =>{
+    if(on === 0){
+     document.body.style.backgroundColor = 'white';
+     on = 1;
+    }
+    else{
+        document.body.style.backgroundColor = 'rgba(17,24,39,var(--tw-bg-opacity))';
+        on = 0;
+    }
+})

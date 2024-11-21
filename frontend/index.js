@@ -618,11 +618,11 @@ const oldData = {
     "2215500149":0,
     "2215500045":0,
     };
+    
     console.log(oldData["2215001289"]);
-document.addEventListener('DOMContentLoaded', async () => {
+    document.addEventListener('DOMContentLoaded', async () => {
     try {
         
-             
         const response = await fetch("http://localhost:3001/data");
         const data = await response.json();
         let filteredData = [...data]; // Keep original data separate
@@ -643,8 +643,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const xValues = ["Hostellers", "Day Scholars",];
         const yValues = [311,307];
         const barColors = [
-          "#b91d47",
-          "#00aba9",
+            "#b91d47",
+            "#00aba9",
         ];
         
         // new Chart("myChart", {
@@ -664,7 +664,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         //   }
         // });
 
-        
+        // Populate difficulty filter dropdown
+        const populateDifficultyFilter = () => {
+            const difficulties = ['Easy', 'Medium', 'Hard'];
+            difficultyFilter.innerHTML = '<option value="all">All Difficulties</option>';
+            difficulties.forEach(difficulty => {
+                const option = document.createElement('option');
+                option.value = difficulty;
+                option.textContent = difficulty;
+                difficultyFilter.appendChild(option);
+            });
+        };
         // Populate section filter dropdown
         const populateSectionFilter = () => {
             // var sections = [...new Set(data.map(student => student.section || 'N/A'))].sort();
@@ -719,8 +729,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if(student.recentSubmissions){
                     if(student.recentSubmissions.length > 0){
                     val = student.recentSubmissions[0].title || '';
-                     utcSeconds = student.recentSubmissions[0].timestamp || 0;;
-                     d = new Date(0); // The 0 there is the key, which sets the date to the epoch
+                    utcSeconds = student.recentSubmissions[0].timestamp || 0;;
+                    d = new Date(0); // The 0 there is the key, which sets the date to the epoch
                     d.setUTCSeconds(utcSeconds);
                 }else {val = "" }
                 }else{

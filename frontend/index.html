@@ -8,10 +8,57 @@
     <title>LeetCode Leaderboard</title>
 </head>
 <body class="bg-gray-900 text-white p-5">
-    <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
+    <button id="theme-toggle" class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        Toggle Dark/Light Mode
+    </button>
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved user preference, if any, on load of the website
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.remove('bg-gray-900', 'text-white');
+            body.classList.add('bg-white', 'text-black');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (body.classList.contains('bg-gray-900')) {
+                body.classList.remove('bg-gray-900', 'text-white');
+                body.classList.add('bg-white', 'text-black');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('bg-white', 'text-black');
+                body.classList.add('bg-gray-900', 'text-white');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
     <div class="container mx-auto my-10">
         <div class="">
             <!-- Leaderboard -->
+            <div id="ticker" class="bg-gray-700 text-white p-4 rounded mb-6">
+                <marquee behavior="scroll" direction="left" id="latest-submissions">
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            fetch('http://localhost:3001/data')
+                                .then(response => response.json())
+                                .then(data => {
+                                    const latestSubmissions = data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                                    const marquee = document.getElementById('latest-submissions');
+                                    latestSubmissions.slice(0, 3).forEach(submission => {
+                                        const span = document.createElement('span');
+                                        span.textContent = ${submission.name} solved ${submission.question} (${submission.difficulty});
+                                        marquee.appendChild(span);
+                                    });
+                                marquee.style.backgroundColor = 'green';
+                            })
+                                .catch(error => {
+                                    console.error('Error fetching latest submissions:', error);
+                                });
+                        });
+                    </script>
+                </marquee>
+            </div>
             <div class="col-span-2 bg-gray-800 rounded-lg shadow-md p-6 overflow-x-auto">
                 <div class="flex justify-between items-center mb-6">
                     <h1 class="text-4xl font-bold">TBPPP Leaderboard</h1>

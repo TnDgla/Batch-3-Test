@@ -618,6 +618,18 @@ const oldData = {
     "2215500149":0,
     "2215500045":0,
     };
+    function darkMode() {
+        let element = document.body;
+        let content = document.getElementById("DarkModetext");
+        element.className = "dark-mode";
+        content.innerText = "Dark Mode is ON";
+    }
+    function lightMode() {
+        let element = document.body;
+        let content = document.getElementById("DarkModetext");
+        element.className = "light-mode";
+        content.innerText = "Dark Mode is OFF";
+    }
     console.log(oldData["2215001289"]);
 document.addEventListener('DOMContentLoaded', async () => {
     try {
@@ -678,6 +690,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         };
 
+        
         // Function to export data to CSV
         const exportToCSV = (data) => {
             const headers = ['Rank', 'Roll Number','up', 'Name', 'Section', 'Total Solved', 'Easy', 'Medium', 'Hard', 'LeetCode URL','Last question'];

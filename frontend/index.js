@@ -832,4 +832,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error fetching data:', error);
     }
+    const toggle=document.getElementById('light');
+    const current=localStorage.getItem('mode') || 'light';
+    if(current=='dark'){
+        document.body.classList.add('dark-mode');
+        toggle.innerHTML='Dark...';
+    }else{
+        document.body.classList.remove('dark-mode');
+        toggle.innerHTML='Light...';
+    }
+    toggle.addEventListener('click',() =>{
+        document.body.classList.toggle('dark-mode');
+    if(document.body.classList.contains('dark-mode')){
+        toggle.innerHTML='Dark...';
+        localStorage.setItem('mode','dark');
+    }else{
+        toggle.innerHTML='Light...';
+        localStorage.setItem('mode','light');
+    }}
+)
 });

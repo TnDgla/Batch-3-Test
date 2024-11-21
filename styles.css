@@ -1,0 +1,42 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+th:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+tr {
+    transition: background-color 0.3s ease;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+body {
+  background-color: #fff; /* Light mode background */
+  color: #333; /* Light mode text color */
+}
+
+body.dark-mode {
+  background-color: #222; /* Dark mode background */
+  color: #eee; /* Dark mode text color */
+}
+
+#theme-toggle {
+  /* Style your button here */
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style the icon elements as needed */
+.icon-sun {
+  display: none; /* Hide initially */
+}
+
+.icon-moon {
+  display: block; /* Show initially */
+}

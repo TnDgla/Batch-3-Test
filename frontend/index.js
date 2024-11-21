@@ -1,3 +1,33 @@
+function darkMode() {
+    let element = document.body;
+    let content = document.getElementById("DarkModetext");
+    element.className = "dark-mode";
+    content.innerText = "Dark Mode is ON";
+    if(text=="DarkMode") {
+        content.innerText="light-mode";
+        element.classList.remove("dark-mode");
+        element.classList.add("light-mode");
+        element.style.backgroundColor="white";
+    }
+    else{
+        content.innerText="dark-mode";
+        element.classList.remove("dark-mode");
+        element.classList.add("dark-mode");
+        element.style.backgroundColor="black";
+
+    }
+}
+function lightMode() {
+    let element = document.body;
+    let content = document.getElementById("DarkModetext");
+    element.className = "light-mode";
+    content.innerText = "Dark Mode is OFF";
+}
+
+
+
+
+
 const oldData = {
     "2215001289":1077,
     "2215500064":863,
@@ -338,7 +368,7 @@ const oldData = {
     "2215000355":86,
     "2215000300":86,
     "2315990039":86,
-    "2215001339":84,
+    "2215001339":99,
     "2215800021":84,
     "2215000211":83,
     "2215500100":83,

@@ -1,7 +1,21 @@
 /* styles.css */
 
+
+
+
 body {
     font-family: Arial, sans-serif;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+    
+}
+
+.light-mode {
+    background-color: white;
+    color: black;
 }
 
 th:hover {
@@ -15,3 +29,4 @@ tr {
 tr:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+

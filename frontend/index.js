@@ -805,6 +805,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             renderLeaderboard(sortedData);
         });
 
+        document.getElementById('p').addEventListener('click',()=>{
+            document.style.innerHTML="Light Mode"
+        })
+
         document.getElementById('sort-total').addEventListener('click', () => {
             totalSolvedDirection = totalSolvedDirection === 'desc' ? 'asc' : 'desc';
             const sortedData = sortData(filteredData, 'totalSolved', totalSolvedDirection, true);

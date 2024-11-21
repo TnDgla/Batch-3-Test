@@ -15,3 +15,14 @@ tr {
 tr:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+.moving-board{
+    background-color: aqua;
+    font-size: 24px;
+    display: flex;
+    color: black;
+    border-radius: 10px;
+    
+}
+.space{
+    margin-left: 20px;
+}

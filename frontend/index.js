@@ -1,3 +1,5 @@
+
+
 const oldData = {
     "2215001289":1077,
     "2215500064":863,
@@ -833,3 +835,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error fetching data:', error);
     }
 });
+
+// let result = document.getElementById("GFG");
+
+// function changeColor(color) {
+//     document.body.style.background = color;
+// }
+
+// function myFunc() {
+//     changeColor('white');
+//     result.innerHTML = "Background Color changed";
+// }        
+
+
+
+function darkMode() {
+    let element = document.body;
+    let content = document.getElementById("DarkModetext");
+    element.className = "dark-mode";
+    content.innerText = "Dark Mode is ON";
+}
+function lightMode() {
+    let element = document.body;
+    let content = document.getElementById("DarkModetext");
+    element.className = "light-mode";
+    content.innerText = "Dark Mode is OFF";
+}

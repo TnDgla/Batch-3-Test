@@ -8,11 +8,82 @@
     <title>LeetCode Leaderboard</title>
 </head>
 <body class="bg-gray-900 text-white p-5">
-    <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
+    <div class="mb-6">
+        <input type="text" id="todo-url" class="bg-gray-700 text-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter URL">
+        <button id="add-todo" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded ml-2">
+            Add question to list 
+        </button>
+    </div>
+    <ul id="todo-list" class="list-disc pl-5">
+    </ul>
+    <script>
+        document.getElementById('add-todo').addEventListener('click', () => {
+            const urlInput = document.getElementById('todo-url');
+            const url = urlInput.value.trim();
+            if (url) {
+                const todoList = document.getElementById('todo-list');
+                const li = document.createElement('li');
+                li.textContent = url;
+                todoList.appendChild(li);
+                urlInput.value = '';
+            }
+        });
+    </script></div>
+    <div class="absolute top-0 right-0 m-4">
+        <button id="theme-toggle" class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            Dark/Light Mode
+        </button>
+    </div>
+    
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.remove('bg-gray-900', 'text-white');
+            body.classList.add('bg-white', 'text-black');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (body.classList.contains('bg-gray-900')) {
+                body.classList.remove('bg-gray-900', 'text-white');
+                body.classList.add('bg-white', 'text-black');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('bg-white', 'text-black');
+                body.classList.add('bg-gray-900', 'text-white');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
     <div class="container mx-auto my-10">
         <div class="">
             <!-- Leaderboard -->
+            <div id="ticker" class="bg-gray-700 text-white p-4 rounded mb-6">
+                <marquee behavior="scroll" direction="left" id="latest-submissions">
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            fetch('http://localhost:3001/data')
+                                .then(response => response.json())
+                                .then(data => {
+                                    const latestSubmissions = data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                                    const marquee = document.getElementById('latest-submissions');
+                                    latestSubmissions.slice(0, 3).forEach(submission => {
+                                        const span = document.createElement('span');
+                                        span.textContent = `${submission.name} solved (${submission.difficulty})`;
+                                        marquee.appendChild(span);
+                                    });
+                                marquee.style.backgroundColor = 'green';
+                            })
+                                .catch(error => {
+                                    console.error('Error fetching latest submissions:', error);
+                                });
+                        });
+                    </script>
+                </marquee>
+            </div>
             <div class="col-span-2 bg-gray-800 rounded-lg shadow-md p-6 overflow-x-auto">
+              
                 <div class="flex justify-between items-center mb-6">
                     <h1 class="text-4xl font-bold">TBPPP Leaderboard</h1>
                     <div class="flex gap-4 items-center">
@@ -31,6 +102,12 @@
                             <th class="p-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Roll Number</th>
                             <th class="p-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Up</th>
                             <th class="p-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Name</th>
+                            <th class="p-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
+                                Name
+                                <button id="sort-name" class="ml-2 hover:text-white">
+                                    <i class="fas fa-sort"></i>
+                                </button>
+                            </th>
                             <th class="p-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                                 Section
                                 <button id="sort-section" class="ml-2 hover:text-white">

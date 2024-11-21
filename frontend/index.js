@@ -839,21 +839,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                 document.body.style.backgroundColor = 'black'
                 inbet.style.backgroundColor = 'rgb(32, 32, 32)'
                 head.style.backgroundColor = 'rgb(64, 64, 64)'
-                
+
                 flag = true
             }
             else {
                 document.body.style.backgroundColor = 'rgb(17, 24, 39)'
                 inbet.style.backgroundColor = 'rgb(31, 41, 55)'
                 head.style.backgroundColor = 'rgb(55, 65, 81)'
-                
+
                 flag = false
             }
-        }
-        
-        
-
-
+        })
     } catch (error) {
         console.error('Error fetching data:', error);
     }

@@ -2,6 +2,18 @@
 
 body {
     font-family: Arial, sans-serif;
+    padding: 25px;
+    color: white;
+    background-color: black;
+}
+.dark-mode .min-w-full{
+    background-color:black;
+    color: white;
+}
+.light-mode .min-w-full{
+    background-color: white;
+    color: black;
+
 }
 
 th:hover {
@@ -15,3 +27,25 @@ tr {
 tr:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+h1{
+    align-content: center;
+}
+body {
+    padding: 25px;
+    background-color: white;
+    color: black;
+    font-size: 25px;
+  }
+  
+  .dark-mode {
+    background-color: black;
+    color: white;
+  } 
+  .marquee-container {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
+    box-shadow: 0px 0px 10px rgba(36, 88, 21, 0.5);
+    border-radius: 10px;
+}  

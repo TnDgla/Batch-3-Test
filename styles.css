@@ -1,0 +1,205 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+th:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+tr {
+    transition: background-color 0.3s ease;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+ {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  label {
+    display: flex;
+    width: 75px;
+    height: 35px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6px;
+    background: #222;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+  }
+  label i {
+    font-size: 18px;
+  }
+  label .fa-sun {
+    color: gold;
+    transition: 0.8s;
+  }
+  label .fa-moon {
+    color: #fff;
+    transition: 0.8s;
+  }
+  label .ball {
+    display: none;
+  }
+  input:checked + label .fa-sun {
+    transform: translateX(-43px);
+  }
+  input:checked + label .fa-moon {
+    transform: translateX(43px);
+  }
+  label .fa-sun {
+    opacity: 1;
+  }
+  input:checked + label .fa-sun {
+    opacity: 0;
+  }
+  label .fa-moon {
+    opacity: 0;
+  }
+  input:checked + label .fa-moon {
+    opacity: 1;
+  }  
+  input:checked  + label {
+    color: blue;
+  }
+  label .ball {
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 25px;
+    top: 5px;
+    left: 5px;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.8s;
+  }
+  body {
+
+    background-color: white; /* Light mode background */
+  
+    color: black; /* Light mode text color */
+  
+  }
+  
+  
+  
+  body[data-theme="dark"] {
+  
+    background-color: black; /* Dark mode background */
+  
+    color: white; /* Dark mode text color */
+  
+  }
+  body {
+    background: red;
+  }
+  
+  .page-head {
+    background: white;
+    box-sizing: border-box;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    width: 375px;
+  }
+  
+  
+  /**
+   * Ticker
+   */
+  
+  .page-head__ticker {
+    font-family: "Arial";
+    font-size: 11px;
+    font-weight: Bold;
+    height: 36px;
+    line-height: 1;
+    padding: 0 12px;
+    text-transform: uppercase;
+    overflow: hidden;
+  }
+  
+  .msg {
+    rmargin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: marquee 6s linear infinite;
+    display: inline-block;
+  }
+  
+  span {
+    padding-left: 24px;
+    /* to give a gap between messages */
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-50%, 0);
+      /* changed from 100% */
+    }
+  }
+  .ticker-tape-container {
+    overflow-x: hidden;
+    max-width: 700px;
+    width: 100%;
+    display: flex;
+  }
+  
+  .ticker-tape {
+    --direction: normal;
+    --duration: 60s;
+    --delay: 0s;
+    --iteration-count: infinite;
+    display: flex;
+    gap: 1rem;
+    flex: 0 0 auto;
+    margin-right: 1rem;
+    min-width: 100%;
+    align-items: center;
+    animation: marquee var(--duration) linear var(--delay) var(--iteration-count);
+    animation-play-state: var(--play);
+    animation-delay: var(--delay);
+    animation-direction: var(--direction);
+  }
+  
+  @keyframes scrmarqueeoll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* This is just some styling to make it look presentable */
+  
+  .basic-styling {
+    border-radius: 10px;
+    background-color: lightblue;
+    padding: 2rem;
+    color: #010101;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+  }
+  
+  .basic-styling span {
+    padding: 0.25rem 1rem;
+    border-radius: 10px;
+    border: 2px dashed #5fb3ce;
+    background-color: #86c5da;
+  }       

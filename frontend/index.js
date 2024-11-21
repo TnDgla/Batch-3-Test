@@ -664,7 +664,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         //   }
         // });
 
-        
+
         // Populate section filter dropdown
         const populateSectionFilter = () => {
             // var sections = [...new Set(data.map(student => student.section || 'N/A'))].sort();
@@ -706,6 +706,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             link.click();
             document.body.removeChild(link);
         };
+
+        const movingBoard = document.querySelector(".js-moving-board");
 
         // Function to render the leaderboard
         const renderLeaderboard = (sortedData) => {
@@ -755,7 +757,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `;
                 leaderboardBody.appendChild(row);
             });
-        };
+       
+
+        console.log(sortedData);
+         
+        for(let i=0;i<3;i++){
+           movingBoard.innerHTML +=  `<div class ="space"><div>${sortedData[i].name}</div>
+           <div> ${sortedData[i].url}</div></div>`;
+        }
+    };
 
         // Filter function
         const filterData = (section) => {

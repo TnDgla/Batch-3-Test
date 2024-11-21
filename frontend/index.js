@@ -828,8 +828,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             const sortedData = sortData(filteredData, 'hardSolved', hardSolvedDirection, true);
             renderLeaderboard(sortedData);
         });
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark Mode");
+        }
 
     } catch (error) {
         console.error('Error fetching data:', error);
     }
+    
 });

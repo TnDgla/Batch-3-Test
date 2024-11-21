@@ -828,8 +828,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             const sortedData = sortData(filteredData, 'hardSolved', hardSolvedDirection, true);
             renderLeaderboard(sortedData);
         });
+        const checkbox = document.getElementById("checkbox")
+        checkbox.addEventListener("change", () => {
+        document.body.classList.toggle("dark")
+        })
 
     } catch (error) {
         console.error('Error fetching data:', error);
     }
 });
+

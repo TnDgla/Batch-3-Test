@@ -6,8 +6,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>LeetCode Leaderboard</title>
+    <style>
+        body {
+            padding: 20px;
+            background-color: white;
+            color: black;
+            font-size: 20px;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        ::-moz-selection { /* Code for Firefox */
+            color: red;
+            background: yellow;
+}
+
+::selection {
+    color: red;
+    background: yellow;
+}
+    </style>
+
+
 </head>
 <body class="bg-gray-900 text-white p-5">
+    <button onclick="myFunction()">Toggle dark mode</button>
+    <script>
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark-mode");
+        }
+        </script>
+
+<h1>Select some text on this page:</h1>
+
     <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
     <div class="container mx-auto my-10">
         <div class="">

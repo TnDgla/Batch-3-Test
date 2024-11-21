@@ -102,6 +102,16 @@ async function fetchLeet(username) {
   }
 }
 
+document.getElementById('darkButton').addEventListener('click', function() {
+  document.body.style.backgroundColor = 'black';
+  document.body.style.color = 'white';
+});
+
+document.getElementById('lightButton').addEventListener('click', function() {
+  document.body.style.backgroundColor = 'white';
+  document.body.style.color = 'black';
+});
+
 async function fetchAndSaveData() {
   try {
     console.log('Starting to read input files...');

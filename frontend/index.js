@@ -829,6 +829,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             renderLeaderboard(sortedData);
         });
 
+        
+        const darkButton = document.getElementById('darkButton');
+const lightButton = document.getElementById('lightButton');
+
+// Event listener for the dark button
+darkButton.addEventListener('click', () => {
+  document.body.style.backgroundColor = 'black';
+  document.body.style.color = 'white';
+});
+
+// Event listener for the light button
+lightButton.addEventListener('click', () => {
+  document.body.style.backgroundColor = 'white';
+  document.body.style.color = 'black';
+});
+
     } catch (error) {
         console.error('Error fetching data:', error);
     }

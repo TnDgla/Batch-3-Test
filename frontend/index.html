@@ -6,7 +6,40 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>LeetCode Leaderboard</title>
+    <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+    </script>
+    <style>
+        .mode {
+            float:right;
+        }
+        .change {
+            cursor: pointer;
+            border: 1px solid #555;
+            border-radius: 40%;
+            width: 20px;
+            text-align: center;
+            padding: 5px;
+            margin-left: 8px;
+        }
+        .dark{
+            background-color: white;
+            color: black;
+        }
+    </style>
 </head>
+<button onclick="myFunction()">Switch mode</button> 
+<body>
+    <center>
+        <!-- The image has scrolling behavior to left -->
+        <marquee behavior="scroll" direction="left">
+            <p><strong>TOP 3 STUDENT OF THE LEADERBOARD</strong></p>
+        </marquee>
+    </center>
+    <div class="mode">
+        Dark mode:             
+        <span class="change">OFF</span>
+    </div>
 <body class="bg-gray-900 text-white p-5">
     <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
     <div class="container mx-auto my-10">
@@ -89,6 +122,12 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <script src="index.js"></script>
+    <script>
+        function myFunction() {
+        let element = document.body;
+        element.classList.toggle("dark");
+    }
+    </script>
+    
 </body>
 </html>

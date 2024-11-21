@@ -1,3 +1,16 @@
+function darkMode() {
+    let element = document.body;
+    let content = document.getElementById("DarkModetext");
+    element.className = "dark-mode";
+    content.innerText = "Dark Mode is ON";
+}
+function lightMode() {
+    let element = document.body;
+    let content = document.getElementById("DarkModetext");
+    element.className = "light-mode";
+    content.innerText = "Dark Mode is OFF";
+}
+
 const oldData = {
     "2215001289":1077,
     "2215500064":863,
@@ -338,7 +351,7 @@ const oldData = {
     "2215000355":86,
     "2215000300":86,
     "2315990039":86,
-    "2215001339":84,
+    "2215001339":99,
     "2215800021":84,
     "2215000211":83,
     "2215500100":83,

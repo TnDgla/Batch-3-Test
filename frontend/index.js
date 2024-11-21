@@ -633,6 +633,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         var day =0;
         yashData.forEach(myFunction);
 
+        
         function myFunction(item) {
             if(item.dayi==='Day Scholars') host+=1;
             else day+=1;
@@ -706,6 +707,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             link.click();
             document.body.removeChild(link);
         };
+        const movingBoard = document.querySelector(".js-moving-board");
 
         // Function to render the leaderboard
         const renderLeaderboard = (sortedData) => {
@@ -755,7 +757,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `;
                 leaderboardBody.appendChild(row);
             });
+
+            console.log(sortedData);
+
+        for(let i=0;i<3;i++){
+            movingBoard.innerHTML +=`<div class="space"><div>${sortedData[i].name}</div>
+            <div>${sortedData[i].url}</div></div>`;
+        }
+        
         };
+
+        
+
+
+    
 
         // Filter function
         const filterData = (section) => {

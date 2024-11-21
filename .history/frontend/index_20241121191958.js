@@ -1,4 +1,3 @@
-
 const oldData = {
     "2215001289":1077,
     "2215500064":863,
@@ -620,6 +619,10 @@ const oldData = {
     "2215500045":0,
     };
     console.log(oldData["2215001289"]);
+    function myFunction() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+     }
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         
@@ -833,4 +836,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error fetching data:', error);
     }
+
+    
+
 });

@@ -1,4 +1,7 @@
-
+const checkbox = document.getElementById("checkbox")
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark")
+})
 const oldData = {
     "2215001289":1077,
     "2215500064":863,

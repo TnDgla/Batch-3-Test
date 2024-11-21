@@ -785,6 +785,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             });
         };
+        
 
         // Initialize the page
         populateSectionFilter();
@@ -804,6 +805,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             const sortedData = sortData(filteredData, 'section', sectionDirection, false);
             renderLeaderboard(sortedData);
         });
+        document.getElementById('btn').addEventListener('click', function() {  
+            this.classList.toggle('active');  
+            this.innerText = this.classList.contains('active') ? 'TOGGLE ON' : 'TOGGLE OFF';  
+        });
 
         document.getElementById('sort-total').addEventListener('click', () => {
             totalSolvedDirection = totalSolvedDirection === 'desc' ? 'asc' : 'desc';
@@ -822,6 +827,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             const sortedData = sortData(filteredData, 'mediumSolved', mediumSolvedDirection, true);
             renderLeaderboard(sortedData);
         });
+
+        document.getElementById('sort-latest').addEventListener('click', () => {
+            latestSolved=latestSolved==='desc' ? 'asc' : 'desc';
+            const latestData = sortData(filterData,'latestSolved',latestSolved,true);
+            renderLeaderboard(sortedData);
+        })
 
         document.getElementById('sort-hard').addEventListener('click', () => {
             hardSolvedDirection = hardSolvedDirection === 'desc' ? 'asc' : 'desc';

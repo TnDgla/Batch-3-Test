@@ -757,6 +757,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         };
 
+        //background color function
+        color() {
+
+        };
+
         // Filter function
         const filterData = (section) => {
             filteredData = section === 'all' 
@@ -832,4 +837,5 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error fetching data:', error);
     }
+    
 });

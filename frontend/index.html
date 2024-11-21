@@ -6,8 +6,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>LeetCode Leaderboard</title>
+    <style>
+        .button{
+            height: 35px;
+            width: 35px;
+            background-color: white;
+            border-radius: 10%;
+            padding: right 0px;
+            border: white;
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white p-5">
+<body class="bg-gray-900 text-white p-5" id="body">
     <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
     <div class="container mx-auto my-10">
         <div class="">
@@ -21,6 +31,9 @@
                         </select>
                         <button id="export-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center transition duration-150 ease-in-out">
                             <i class="fas fa-download mr-2"></i> Export to CSV
+                        </button>
+                        <button onclick ="changecolor()">
+                            <div class="button" id="button"></div>
                         </button>
                     </div>
                 </div>
@@ -90,5 +103,26 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="index.js"></script>
+    <script>
+        let a= 0;
+        function changecolor()
+        {
+            if (a%2==0)
+        {
+            document.getElementById("leaderboard-body").style.backgroundColor="white";
+            document.getElementById("body").style.backgroundColor="white";
+            document.getElementById("leaderboard-body").style.color="black";
+            document.getElementById("body").style.backgroundColor="black";
+            a++;
+        }
+        else{
+            document.getElementById("leaderboard-body").style.backgroundColor="black";
+            document.getElementById("body").style.backgroundColor="black";
+            document.getElementById("leaderboard-body").style.color="white";
+            document.getElementById("body").style.backgroundColor="white";
+            a++;
+        }
+        }
+    </script>
 </body>
 </html>

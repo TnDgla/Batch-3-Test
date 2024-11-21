@@ -629,6 +629,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         let yashData = [...data];
         const leaderboardBody = document.getElementById('leaderboard-body');
         const sectionFilter = document.getElementById('section-filter');
+
+        const ticker = document.getElementById('ticker')
+
+
+
         var host =0;
         var day =0;
         yashData.forEach(myFunction);
@@ -678,6 +683,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         };
 
+        
+        // document.getElementById("toggle-btn"){
+            
+        // }
         // Function to export data to CSV
         const exportToCSV = (data) => {
             const headers = ['Rank', 'Roll Number','up', 'Name', 'Section', 'Total Solved', 'Easy', 'Medium', 'Hard', 'LeetCode URL','Last question'];
@@ -706,6 +715,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             link.click();
             document.body.removeChild(link);
         };
+
+        const showTicker = (data)=>{
+            ticker.innerHTML='';
+            data.forEach((student, index) => {
+                var x = student.recentSubmissions.timestamp;
+                var y = student.recentSubmissions.submitted;
+                filterData()
+            })
+        }
 
         // Function to render the leaderboard
         const renderLeaderboard = (sortedData) => {

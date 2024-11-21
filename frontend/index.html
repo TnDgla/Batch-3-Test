@@ -7,14 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>LeetCode Leaderboard</title>
 </head>
-<body class="bg-gray-900 text-white p-5">
-    <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
+<body class="bg-gray-900 text-white p-5" id="body">
     <div class="container mx-auto my-10">
-        <div class="">
+        <div class="newcolor">
             <!-- Leaderboard -->
             <div class="col-span-2 bg-gray-800 rounded-lg shadow-md p-6 overflow-x-auto">
                 <div class="flex justify-between items-center mb-6">
                     <h1 class="text-4xl font-bold">TBPPP Leaderboard</h1>
+                    <button id="theme-toggle">Toggle Mode</button>
                     <div class="flex gap-4 items-center">
                         <select id="section-filter" class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="all">All Sections</option>
@@ -24,6 +24,29 @@
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const themeToggleButton = document.getElementById('theme-toggle');
+        const body = document.getElementById('body');
+
+        themeToggleButton.addEventListener('click', () => {
+            
+            body.classList.toggle('bg-gray-900');
+            body.classList.toggle('text-white');
+            body.classList.toggle('bg-white');
+            body.classList.toggle('text-black');
+
+           
+            if (body.classList.contains('bg-gray-900')) {
+                themeToggleButton.textContent = 'Switch to Light Mode';
+            } else {
+                themeToggleButton.textContent = 'Switch to Dark Mode';
+            }
+        });
+    </script>
                 <table class="min-w-full bg-gray-900 rounded-lg overflow-hidden shadow-md">
                     <thead>
                         <tr class="bg-gray-700">

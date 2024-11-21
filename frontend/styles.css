@@ -2,7 +2,15 @@
 
 body {
     font-family: Arial, sans-serif;
+    padding: 25px;
+          background-color: white;
+          color: black;
+          font-size: 25px;
 }
+.dark-mode {
+    background-color: black;
+    color: white;
+  }
 
 th:hover {
     background-color: rgba(0, 0, 0, 0.5);
@@ -15,3 +23,4 @@ tr {
 tr:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+

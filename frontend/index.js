@@ -833,3 +833,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error fetching data:', error);
     }
 });
+
+
+
+//  dark/light mode
+const toggleButton = document.getElementById('mode-toggle');
+const currentMode = localStorage.getItem('mode') || ('light');  
+
+if (currentMode === 'dark') {
+  document.body.classList.add('dark-mode');
+  toggleButton.innerHTML = 'Dark';  
+} else {
+  document.body.classList.remove('dark-mode');
+  toggleButton.innerHTML = 'Light';  
+}
+
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  
+  if (document.body.classList.contains('dark-mode')) {
+    toggleButton.innerHTML = 'Dark';
+    localStorage.setItem('mode', 'dark');
+  } else {
+    toggleButton.innerHTML = 'Light';
+    localStorage.setItem('mode', 'light');
+  }
+});

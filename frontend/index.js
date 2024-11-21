@@ -646,6 +646,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           "#b91d47",
           "#00aba9",
         ];
+    
         
         // new Chart("myChart", {
         //   type: "pie",

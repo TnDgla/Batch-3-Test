@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +10,23 @@
 </head>
 <body class="bg-gray-900 text-white p-5">
     <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
+     <marquee >TBPPP Leaderboard-here top three submission will display</marquee>
     <div class="container mx-auto my-10">
         <div class="">
             <!-- Leaderboard -->
             <div class="col-span-2 bg-gray-800 rounded-lg shadow-md p-6 overflow-x-auto">
                 <div class="flex justify-between items-center mb-6">
+       
                     <h1 class="text-4xl font-bold">TBPPP Leaderboard</h1>
                     <div class="flex gap-4 items-center">
+                        <button onclick="darkmode()">Darkmode</button>
+                        <button onclick="lightmode()">Lightmode</button>
+                       
+                          
                         <select id="section-filter" class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <option value="all">All Sections</option>
                         </select>
+                        
                         <button id="export-btn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded flex items-center transition duration-150 ease-in-out">
                             <i class="fas fa-download mr-2"></i> Export to CSV
                         </button>
@@ -88,6 +96,22 @@
             </div>
         </div>
     </div>
+    <script>
+        function darkmode(){
+            let element =document.body;
+            let content =document.getElementsByClassName("min-w-full");
+            element.className="darkmode";
+            content.innerText="Dark Mode is ON";
+
+        }
+        function lightmode(){
+            let element=document.body;
+            let content =documnet.getElementsByClassName("min-w-full");
+            elemrnt.className="lightmode";
+            content.innerText="Dark Mode is OFF";
+        }
+
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="index.js"></script>
 </body>

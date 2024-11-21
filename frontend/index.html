@@ -8,7 +8,34 @@
     <title>LeetCode Leaderboard</title>
 </head>
 <body class="bg-gray-900 text-white p-5">
-    <!-- <canvas id="myChart" style="width:100%;max-width:600px"></canvas> -->
+    <div style="display: flex; justify-content: flex-end;">
+        <button id="theme-toggle" class="bg-gray-700 text-white px-4 py-2 rounded hover:bg-blue-200 focus:outline-none focus:ring-6 focus:ring-blue-200">
+            Toggle Dark/Light Mode
+        </button>
+    </div>
+    
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved user preference, if any, on load of the website
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.remove('bg-gray-900', 'text-white');
+            body.classList.add('bg-white', 'text-black');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (body.classList.contains('bg-gray-900')) {
+                body.classList.remove('bg-gray-900', 'text-white');
+                body.classList.add('bg-white', 'text-black');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('bg-white', 'text-black');
+                body.classList.add('bg-gray-900', 'text-white');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
     <div class="container mx-auto my-10">
         <div class="">
             <!-- Leaderboard -->

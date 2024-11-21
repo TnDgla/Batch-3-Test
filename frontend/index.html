@@ -39,12 +39,6 @@
                             <th class="p-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Up</th>
                             <th class="p-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Name</th>
                             <th class="p-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
-                                Name
-                                <button id="sort-name" class="ml-2 hover:text-white">
-                                    <i class="fas fa-sort"></i>
-                                </button>
-                            </th>
-                            <th class="p-4 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                                 Section
                                 <button id="sort-section" class="ml-2 hover:text-white">
                                     <i class="fas fa-sort"></i>
@@ -137,7 +131,7 @@
                     const marquee = document.getElementById('latest-submissions');
                     latestSubmissions.slice(0, 3).forEach(submission => {
                         const span = document.createElement('span');
-                        span.textContent = `${submission.name} solved (${submission.difficulty})`;
+                        span.textContent = `${submission.name} solved ${submission.hardSolved} hard questions and solved total ${submission.totalSolved} questions       `;
                         marquee.appendChild(span);
                     });
                 marquee.style.backgroundColor = 'green';

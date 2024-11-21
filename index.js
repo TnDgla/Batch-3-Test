@@ -183,6 +183,32 @@ app.get('/data', (req, res) => {
   res.sendFile(__dirname + '/data.json');
 });
 
+
+app.get('/ticker', async (req, res) => {
+  try {
+    const data = JSON.parse(fs.readFileSync('data.json', 'utf-8'));
+    const tickerData = [];
+
+    data.forEach(student => {
+      if (student.recentSubmissions && student.recentSubmissions.length > 0) {
+        student.recentSubmissions.slice(0, 3).forEach(submission => {
+          tickerData.push({
+            name: student.name,
+            title: submission.title,
+            timestamp: submission.timestamp,
+          });
+        });
+      }
+    });
+    tickerData.sort((a, b) => b.timestamp - a.timestamp);
+
+    res.json(tickerData);
+  } catch (error) {
+    console.error('Error fetching ticker data:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 // Initial data fetch and periodic refresh every hour
 fetchAndSaveData();
 setInterval(fetchAndSaveData, 60 * 60 * 1000);
